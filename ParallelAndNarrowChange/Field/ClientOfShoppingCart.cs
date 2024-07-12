@@ -23,13 +23,13 @@ namespace ParallelAndNarrowChange.Field
 
         public void Run()
         {
-            _shoppingCart.AddItem(1, "Product1", 10);
-            _shoppingCart.AddItem(2, "Product2", 20);
-            _shoppingCart.AddItem(3, "Product3", 110);
+            _shoppingCart.Add(1, "Product1", 10);
+            _shoppingCart.Add(2, "Product2", 20);
+            _shoppingCart.Add(3, "Product3", 110);
 
-            Console.WriteLine("Total for the shopping cart is = " + _shoppingCart.CalculateTotalItemPrice());
-            Console.WriteLine("Number of Items in the shopping cart is = " + _shoppingCart.NumberOfItemProducts());
-            Console.WriteLine("Does cart has discounted product = " + _shoppingCart.HasItemDiscount());
+            Console.WriteLine("Total for the shopping cart is = " + _shoppingCart.CalculateTotalPrice());
+            Console.WriteLine("Number of Items in the shopping cart is = " + _shoppingCart.NumberOfProducts());
+            Console.WriteLine("Does cart has discounted product = " + _shoppingCart.HasDiscount());
 
             Console.Read();
         }

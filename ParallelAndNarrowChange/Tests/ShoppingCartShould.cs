@@ -16,31 +16,15 @@ namespace ParallelAndNarrowChange
         }
 
         [Test]
-        public void calculate_the_final_price()
-        {
-            sut.Add(10);
-
-            sut.CalculateTotalPrice().Should().Be(10);
-        }
-
-        [Test]
         public void calculate_the_final_price_for_Items()
         {
             int productId1 = 1, productId2 = 2;
             string productName1 = "Product1", productName2 = "Product2";
             decimal price1 = 10, price2 = 20;
-            sut.AddItem(productId1, productName1, price1);
-            sut.AddItem(productId2, productName2, price2);
+            sut.Add(productId1, productName1, price1);
+            sut.Add(productId2, productName2, price2);
 
-            sut.CalculateTotalItemPrice().Should().Be(30);
-        }
-
-        [Test]
-        public void knows_the_number_of_items()
-        {
-            sut.Add(10);
-
-            sut.NumberOfProducts().Should().Be(1);
+            sut.CalculateTotalPrice().Should().Be(30);
         }
 
         [Test]
@@ -49,18 +33,10 @@ namespace ParallelAndNarrowChange
             int productId1 = 1, productId2 = 2;
             string productName1 = "Product1", productName2 = "Product2";
             decimal price1 = 10, price2 = 20;
-            sut.AddItem(productId1, productName1, price1);
-            sut.AddItem(productId2, productName2, price2);
+            sut.Add(productId1, productName1, price1);
+            sut.Add(productId2, productName2, price2);
 
-            sut.NumberOfItemProducts().Should().Be(2);
-        }
-
-        [Test]
-        public void may_offer_discounts_when_there_at_least_one_expensive_product()
-        {
-            sut.Add(120);
-
-            sut.HasDiscount().Should().BeTrue();
+            sut.NumberOfProducts().Should().Be(2);
         }
 
         [Test]
@@ -69,18 +45,10 @@ namespace ParallelAndNarrowChange
             int productId1 = 1, productId2 = 2;
             string productName1 = "Product1", productName2 = "Product2";
             decimal price1 = 120, price2 = 20;
-            sut.AddItem(productId1, productName1, price1);
-            sut.AddItem(productId2, productName2, price2);
+            sut.Add(productId1, productName1, price1);
+            sut.Add(productId2, productName2, price2);
 
-            sut.HasItemDiscount().Should().BeTrue();
-        }
-
-        [Test]
-        public void does_not_offer_discount_for_cheap_products()
-        {
-            sut.Add(10);
-
-            sut.HasDiscount().Should().BeFalse();
+            sut.HasDiscount().Should().BeTrue();
         }
 
         [Test]
@@ -89,10 +57,10 @@ namespace ParallelAndNarrowChange
             int productId1 = 1, productId2 = 2;
             string productName1 = "Product1", productName2 = "Product2";
             decimal price1 = 10, price2 = 20;
-            sut.AddItem(productId1, productName1, price1);
-            sut.AddItem(productId2, productName2, price2);
+            sut.Add(productId1, productName1, price1);
+            sut.Add(productId2, productName2, price2);
 
-            sut.HasItemDiscount().Should().BeFalse();
+            sut.HasDiscount().Should().BeFalse();
         }
     }
 }

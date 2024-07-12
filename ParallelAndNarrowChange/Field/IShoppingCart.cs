@@ -2,13 +2,9 @@
 {
     public interface IShoppingCart
     {
-        void Add(int aPrice);
-        void AddItem(int productId, string productName, decimal price);
-        decimal CalculateTotalItemPrice();
+        void Add(int productId, string productName, decimal price);
         decimal CalculateTotalPrice();
         bool HasDiscount();
-        bool HasItemDiscount();
         int NumberOfProducts();
-        int NumberOfItemProducts();
     }
 }

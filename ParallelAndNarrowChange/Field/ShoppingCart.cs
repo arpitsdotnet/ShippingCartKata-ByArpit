@@ -7,10 +7,10 @@ namespace ParallelAndNarrowChange.Field
     {
         private readonly List<Item> _items = new();
 
-        public decimal CalculateTotalItemPrice() =>
+        public decimal CalculateTotalPrice() =>
             _items.Sum(x => x.Price);
 
-        public bool HasItemDiscount()
+        public bool HasDiscount()
         {
             foreach (var item in _items)
             {
@@ -22,34 +22,11 @@ namespace ParallelAndNarrowChange.Field
             return false;
         }
 
-        public void AddItem(int productId, string productName, decimal price) =>
+        public void Add(int productId, string productName, decimal price) =>
             _items.Add(new Item(productId, productName, price));
 
-        public int NumberOfItemProducts() =>
+        public int NumberOfProducts() =>
             _items.Count;
 
-
-        //OLD METHOD
-        private decimal price;
-
-        public decimal CalculateTotalPrice()
-        {
-            return price;
-        }
-
-        public bool HasDiscount()
-        {
-            return price > 100;
-        }
-
-        public void Add(int aPrice)
-        {
-            this.price = aPrice;
-        }
-
-        public int NumberOfProducts()
-        {
-            return 1;
-        }
     }
 }
